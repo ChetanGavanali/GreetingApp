@@ -1,24 +1,22 @@
 package com.example.greetingapp.service;
 
 
-import com.example.greetingapp.model.Greeting;
 import org.springframework.stereotype.Service;
 
-import java.util.concurrent.atomic.AtomicLong;
-
-
 @Service
-public class GreetingService implements IGreetingService {
-
-    private static final String template = "Hello world";
-    private final AtomicLong counter = new AtomicLong();
-
-    @Override
-    public Greeting greetingMessage() {
-
-        return new Greeting(counter.incrementAndGet(), String.format(template));
+public class GreetingService  {
+    public String helloWorld() {
+        return "Hello World.....";
     }
 
-
-
+    public String greetMessageWithUser(String firstName, String lastName) {
+        if (firstName.isEmpty() && lastName.isEmpty()) {
+            return helloWorld();
+        } else if (lastName.equals("") && !firstName.equals("")) {
+            return "Hello " + firstName ;
+        } else if (!lastName.equals("") && firstName.equals("")) {
+            return "Hello " + lastName ;
+        }
+        return "Hello " + firstName +" "+ lastName ;
+    }
 }

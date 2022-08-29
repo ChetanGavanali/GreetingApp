@@ -1,33 +1,22 @@
 package com.example.greetingapp.model;
 
 public class Greeting {
-    private long id;
-    private String message;
+    String firstName;
 
-    public Greeting(long id, String message) {
-        this.id = id;
-        this.message = message;
+    String lastName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public long getId() {
-        return id;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getMessage() {
-        return message;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
-
-    public void setMessage(String content) {
-        this.message = content;
-    }
-
-    @Override
-    public String toString() {
-        return "Greeting [id=" + id + ", message=" + message + "]";
-    }
-
 }
