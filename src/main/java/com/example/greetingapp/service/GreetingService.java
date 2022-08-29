@@ -1,12 +1,16 @@
 package com.example.greetingapp.service;
 
-
+import com.example.greetingapp.model.Greeting;
+import com.example.greetingapp.repo.Repo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class GreetingService  {
+    @Autowired
+    public Repo repository;
     public String helloWorld() {
-        return "Hello World.....";
+        return "Hello World.";
     }
 
     public String greetMessageWithUser(String firstName, String lastName) {
@@ -18,5 +22,9 @@ public class GreetingService  {
             return "Hello " + lastName ;
         }
         return "Hello " + firstName +" "+ lastName ;
+    }
+    public Greeting greetingMessage(Greeting greeting){
+        repository.save(greeting);
+        return greeting;
     }
 }
