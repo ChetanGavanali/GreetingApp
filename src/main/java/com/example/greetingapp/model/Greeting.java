@@ -2,12 +2,13 @@ package com.example.greetingapp.model;
 
 public class Greeting {
     private long id;
-    private String content;
+    private String message;
 
     public Greeting(long id, String message) {
         this.id = id;
-        this.content = message;
+        this.message = message;
     }
+
     public long getId() {
         return id;
     }
@@ -16,11 +17,17 @@ public class Greeting {
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getMessage() {
+        return message;
     }
-    public void setContent(String content) {
-        this.content = content;
+
+    public void setMessage(String content) {
+        this.message = content;
+    }
+
+    @Override
+    public String toString() {
+        return "Greeting [id=" + id + ", message=" + message + "]";
     }
 
 }
