@@ -54,4 +54,10 @@ public class GreetingController {
         List<Greeting> response = greetingService.sayAll();
         return response;
     }
+
+    @PutMapping("/edit/{id}")
+    public Greeting editId(@RequestBody Greeting greeting, @PathVariable long id){
+        greetingService.editGreeting(greeting, id);
+        return greeting;
+    }
 }

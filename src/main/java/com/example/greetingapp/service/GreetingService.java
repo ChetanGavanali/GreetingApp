@@ -37,5 +37,14 @@ public class GreetingService  {
     public List<Greeting> sayAll(){
         return repository.findAll();
     }
+    public Greeting editGreeting(Greeting greeting, long id) {
+        Greeting editgreet = repository.findById(id).orElse(null);
+        if (editgreet != null) {
+            editgreet.setMessage(greeting.getMessage());
+            return repository.save(editgreet);
+        }
+        else
+            return null;
+    }
 }
 
